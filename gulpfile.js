@@ -1,4 +1,4 @@
-const { src, dest } = require('gulp');
+const { src, dest, watch } = require('gulp');
 
 
 
@@ -20,5 +20,11 @@ function styles() {
                 .pipe(dest('app/css'))
 }
 
+function watching() {
+        watch(['app/scss/style.scss'], styles)
+        watch(['app/js/main.js'], scripts)
+}
+
 exports.styles = styles;
 exports.scripts = scripts;
+exports.watching = watching;
